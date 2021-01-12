@@ -12,9 +12,8 @@ const channels = require("./channels.json");
  * - recieves a channel object
  * - returns the name of the channel
  ****************************************************************/
-function getChannelName(channel) {
-  // Your code here
-}
+// Arrow function 
+const getChannelName = (channel) => channel.name; 
 
 // console.log(getChannelName(channels[0]));
 
@@ -23,9 +22,12 @@ function getChannelName(channel) {
  * - recieves a channel object
  * - returns the number of videos that channel has
  ****************************************************************/
-function numberOfVideos(channel) {
-  // Your code here
-}
+// Arrow function 
+const numberOfVideos = (channel) => channel.videos.length;
+
+// function numberOfVideos(channel) {
+//   // Your code here
+// }
 // console.log(numberOfVideos(channels[0]))
 
 /**************************************************************
@@ -39,7 +41,16 @@ function numberOfVideos(channel) {
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
   // Your code here
+  // const includesTitle = videoTitle => videoTitle === channel[1];
+  // const titles = channel.some(includesTitle);
+
+  
+  // return titles;
 }
+
+// function channelHasVideo(videoTitle, channel) {
+//   // Your code here
+// }
 // console.log(channelHasVideo("The Universal S", channels[0]));
 // console.log(channelHasVideo("The Universal S", channels[1]));
 
@@ -51,9 +62,21 @@ function channelHasVideo(videoTitle, channel) {
  *
  * BONUS: use iteration method `.find()`
  ****************************************************************/
-function getChannelByName(channelName, channels) {
+// Arrow function 
+const getChannelByName = (channelName, channels) => {
   // Your code here
+  const name = channels.find(channel => channel.name === channelName);
+  return name;
 }
+// function getChannelByName(channelName, channels) {
+//   // Your code here
+//   const name = channels.find(channel => channel.name === channelName);
+//   return name;
+// }
+
+// function getChannelByName(channelName, channels) {
+//   // Your code here
+// }
 // console.log(getChannelByName("PowerfulJRE", channels))
 
 /**************************************************************
@@ -64,10 +87,23 @@ function getChannelByName(channelName, channels) {
  *
  * BONUS: use iteration methods `.find()` and `.some()`
  ****************************************************************/
-function getChannelByVideoTitle(videoTitle, channels) {
+// Arrow Function
+const getChannelByVideoTitle = (videoTitle, channels) => {
   // Your code here
+  const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
+  return title;
 }
-// console.log(channelHasVideo("The Universal S", channels));
+
+// function getChannelByVideoTitle(videoTitle, channels) {
+//   // Your code here
+//   const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
+//   return title;
+// }
+
+// function getChannelByVideoTitle(videoTitle, channels) {
+//   // Your code here
+// }
+console.log(channelHasVideo("The Universal S", channels));
 
 /**************************************************************
  * searchChannels(query, channels):
@@ -77,9 +113,17 @@ function getChannelByVideoTitle(videoTitle, channels) {
  *
  * Hint: use string method `.includes()` and iteration method `.filter()`
  ****************************************************************/
-function searchChannels(query, channels) {
+
+const searchChannels = (query, channels) => {
   // Your code here
+  const arr = channels.filter((channel) => channel.name.includes(query) || channel.description.includes(query));
+   return arr;
 }
+
+
+// function searchChannels(query, channels) {
+//   // Your code here
+// }
 // console.log(searchChannels("the", channels))
 
 module.exports = {
