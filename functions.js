@@ -136,6 +136,8 @@ const searchChannels = (query, channels) => {
 }
 
 
+//hi
+
 // function searchChannels(query, channels) {
 //   // Your code here
 // }
