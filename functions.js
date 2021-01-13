@@ -40,12 +40,19 @@ const numberOfVideos = (channel) => channel.videos.length;
  * BONUS: use iteration method `.some()`
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
+  let there = false;
+  channel.videos.forEach((video) => {
+    if (video.title.toLowerCase() === videoTitle.toLowerCase()){
+      there = true;
+    };
+  });
+  return there;
+
   // Your code here
   // const includesTitle = videoTitle => videoTitle === channel[1];
-  // const titles = channel.some(includesTitle);
-
-  
+  // const titles = channel.some(includesTitle);  
   // return titles;
+
 }
 
 // function channelHasVideo(videoTitle, channel) {
@@ -88,10 +95,16 @@ const getChannelByName = (channelName, channels) => {
  * BONUS: use iteration methods `.find()` and `.some()`
  ****************************************************************/
 // Arrow Function
+// const getChannelByVideoTitle = (videoTitle, channels) => {
+//   // Your code here
+//   const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
+//   return title;
+// }
+
 const getChannelByVideoTitle = (videoTitle, channels) => {
   // Your code here
-  const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
-  return title;
+    const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
+    return title;
 }
 
 // function getChannelByVideoTitle(videoTitle, channels) {
@@ -102,8 +115,10 @@ const getChannelByVideoTitle = (videoTitle, channels) => {
 
 // function getChannelByVideoTitle(videoTitle, channels) {
 //   // Your code here
+//     const title = channels.find(channel => channel.videos.some(video => video.title.includes(videoTitle)));
+//     return title;
 // }
-console.log(channelHasVideo("The Universal S", channels));
+// console.log(channelHasVideo("The Universal S", channels));
 
 /**************************************************************
  * searchChannels(query, channels):
